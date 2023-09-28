@@ -1,0 +1,22 @@
+obtain the screen resolution using various methods in Python, but one of the most common methods is to use the screeninfo library
+
+################################
+Using screeninfo:
+
+First, you'd need to install the library:
+
+pip install screeninfo
+
+Then, you can use the following code to get the screen resolution:
+python
+
+from screeninfo import get_monitors
+
+def get_screen_resolution():
+    monitor = get_monitors()[0]
+    return monitor.width, monitor.height
+
+width, height = get_screen_resolution()
+print(f"Screen resolution: {width}x{height}")
+################################
+
