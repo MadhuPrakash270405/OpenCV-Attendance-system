@@ -1,20 +1,23 @@
 import cv2
-from icecream import ic
-from datetime import datetime
-
 import numpy as np
+import ImageFunctionalites as IMGFunc
+import utils as UT
+import EncodeGenerator as EG
+from icecream import ic
 
-# Get the current time in 12-hour format
-current_time = datetime.now().strftime("%I:%M:%S %p")
-ic.configureOutput(prefix=f"[{current_time}]", includeContext=True)
+ic.configureOutput(prefix=f"[{UT.CURRENT_TIME}]", includeContext=True)
 
-import image_functions.image_functionalities as IMGFunc
 
+MODE_IMAGES_PATH = "resources/Modes"
 screen_width, screen_height = IMGFunc.get_screen_resolution()
 
+encoded_studentImages, student_ids = EG.read_from_pickle()
+
+ic(student_ids)
 
 if __name__ == "__main__":
-    imgBackground = cv2.imread("resources/images/background.png")
+    imgBackground = cv2.imread("resources/background.png")
+    imageModeList = UT.get_images(MODE_IMAGES_PATH)
     # Capture video from default camera
     cap = cv2.VideoCapture(0)
     if not cap.isOpened():
@@ -28,6 +31,7 @@ if __name__ == "__main__":
         rgb_frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
 
         imgBackground[162 : 162 + 480, 55 : 55 + 640] = frame
+        imgBackground[44 : 44 + 633, 808 : 808 + 414] = imageModeList[3]
         ic("Selfie Mode enabled")
         if not ret:
             ic("Failed to fetch frame")

@@ -2,11 +2,9 @@ import os
 import cv2
 from screeninfo import get_monitors
 from icecream import ic
-from datetime import datetime
+import utils as UT
 
-# Get the current time in 12-hour format
-current_time = datetime.now().strftime("%I:%M:%S %p")
-ic.configureOutput(prefix=f"[{current_time}]", includeContext=True)
+ic.configureOutput(prefix=f"[{UT.CURRENT_TIME}]", includeContext=True)
 
 
 def get_screen_resolution():
