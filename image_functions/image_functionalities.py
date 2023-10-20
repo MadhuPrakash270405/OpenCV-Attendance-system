@@ -82,6 +82,12 @@ def gaussian_blurring(filename):
     show_image("Grayscale Image", gray_image)
 
 
-if __name__ == "__main__":
-    filename = os.path.join("./resources/images/01.jpg")
-    grayscale_image(filename)
+def add_text_to_frame(frame, text):
+    cv2.putText(
+        frame, text, (10, 30), cv2.FONT_HERSHEY_SCRIPT_SIMPLEX, 0.9, (0, 0, 255), 2
+    )
+
+
+# if __name__ == "__main__":
+#     filename = os.path.join("./resources/images/01.jpg")
+#     grayscale_image(filename)
