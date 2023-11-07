@@ -1,43 +1,56 @@
-import re
 import cv2
 import face_recognition
 import pickle
 import os
-import utils as UT
-from icecream import ic
+import firebase_admin
+from firebase_admin import credentials
+from firebase_admin import db
+from firebase_admin import  storage
 
-ic.configureOutput(prefix=f"[{UT.CURRENT_TIME}]", includeContext=True)
-IMAGES_PATH = "resources/images"
-
-
-student_images = UT.get_images(IMAGES_PATH)
-student_ids = UT.get_student_ids(IMAGES_PATH)
-ic(student_ids)
-
-
-def findEncodings(student_images):
-    ic("Encoding Started")
-    encodingList = []
-    for student_img in student_images:
-        student_img_rgb = cv2.cvtColor(student_img, cv2.COLOR_BGR2RGB)
-        encode_img = face_recognition.face_encodings(student_img_rgb)[0]
-        encodingList.append(encode_img)
-    ic("Encoding Ended")
-    return encodingList
+cred = credentials.Certificate("serviceAccountKey.json")
+firebase_admin.initialize_app(cred, {
+    'databaseURL': "",
+    'storageBucket': ""
+})
 
 
-def save_to_pickle(encoded_studentImagesWithIds):
-    pickle_file = open("EncodedPickle.p", "wb")
-    pickle.dump(encoded_studentImagesWithIds, pickle_file)
-    pickle_file.close()
-    ic("Pickle File Saved")
+# Importing student images
+folderPath = 'Images'
+pathList = os.listdir(folderPath)
+print(pathList)
+imgList = []
+studentIds = []
+for path in pathList:
+    imgList.append(cv2.imread(os.path.join(folderPath, path)))
+    studentIds.append(os.path.splitext(path)[0])
+
+    fileName = f'{folderPath}/{path}'
+    bucket = storage.bucket()
+    blob = bucket.blob(fileName)
+    blob.upload_from_filename(fileName)
 
 
-def read_from_pickle():
-    pickle_file = open("EncodedPickle.p", "rb")
-    return pickle.load(pickle_file)
+    # print(path)
+    # print(os.path.splitext(path)[0])
+print(studentIds)
 
 
-encoded_studentImages = findEncodings(student_images)
-encoded_studentImagesWithIds = [encoded_studentImages, student_ids]
-save_to_pickle(encoded_studentImagesWithIds)
+def findEncodings(imagesList):
+    encodeList = []
+    for img in imagesList:
+        img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+        encode = face_recognition.face_encodings(img)[0]
+        encodeList.append(encode)
+
+    return encodeList
+
+
+print("Encoding Started ...")
+encodeListKnown = findEncodings(imgList)
+encodeListKnownWithIds = [encodeListKnown, studentIds]
+print("Encoding Complete")
+
+file = open("EncodeFile.p", 'wb')
+pickle.dump(encodeListKnownWithIds, file)
+file.close()
+print("File Saved")
