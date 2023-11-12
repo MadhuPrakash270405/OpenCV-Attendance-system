@@ -14,7 +14,7 @@ data = {
     "2845381":
         {
             "name": "Madhu Prakash",
-            "major": "Computer Science",
+            "major": "CSE",
             "starting_year": 2021,
             "total_attendance": 7,
             "standing": "G",
@@ -24,7 +24,7 @@ data = {
     "2837016":
         {
             "name": "Sai Rohith Avula ",
-            "major": "Computer Science",
+            "major": "SE",
             "starting_year": 2021,
             "total_attendance": 12,
             "standing": "B",
