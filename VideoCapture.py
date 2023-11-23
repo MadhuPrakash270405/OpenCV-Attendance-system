@@ -12,6 +12,8 @@ import numpy as np
 from datetime import datetime
 import logging
 
+from email_notification import send_email
+
 # Setup logging
 log_filename = "face_attendance.log"
 logging.basicConfig(
@@ -169,7 +171,7 @@ def attendence_info(imgBackground, student_id):
     )
     send_email(
         student_name=student_info["name"],
-        student_id
+        student_id=student_id,
         class_name="CIS 634-Software Engineering",
     )
     imgBackground[175 : 175 + 216, 909 : 909 + 216] = get_student_image(student_id)

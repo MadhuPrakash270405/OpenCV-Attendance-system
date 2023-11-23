@@ -674,3 +674,14 @@
 2023-11-14 16:35:20,648 - INFO - Firebase initialized successfully.
 2023-11-14 16:35:20,658 - WARNING -  * Debugger is active!
 2023-11-14 16:35:20,664 - INFO -  * Debugger PIN: 546-262-366
+2023-11-22 01:38:25,601 - INFO - Firebase initialized successfully.
+2023-11-22 01:38:25,633 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2023-11-22 01:38:25,633 - INFO - [33mPress CTRL+C to quit[0m
+2023-11-22 01:38:25,636 - INFO -  * Restarting with stat
+2023-11-22 01:38:28,357 - INFO - Firebase initialized successfully.
+2023-11-22 01:38:28,370 - WARNING -  * Debugger is active!
+2023-11-22 01:38:28,378 - INFO -  * Debugger PIN: 546-262-366
+2023-11-22 01:38:34,767 - INFO - 127.0.0.1 - - [22/Nov/2023 01:38:34] "GET / HTTP/1.1" 200 -
+2023-11-22 01:38:35,253 - INFO - 127.0.0.1 - - [22/Nov/2023 01:38:35] "GET /static/images/icon1.png HTTP/1.1" 200 -
+2023-11-22 01:38:37,281 - INFO - 127.0.0.1 - - [22/Nov/2023 01:38:37] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
