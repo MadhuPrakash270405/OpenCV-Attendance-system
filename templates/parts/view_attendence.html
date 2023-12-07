@@ -8,49 +8,79 @@
   >
     <thead>
       <tr>
+        <th>ID</th>
         <th>Name</th>
-        <th>Department</th>
-        <th>Office</th>
-        <th>Age</th>
-        <th>Start date</th>
-        <th>Salary</th>
-      </tr>
+        <th>Major</th>
+        <th>Starting Year</th>
+        <th>Total Attendance</th>
+        <th>Year</th>
+        <th>Last Attendance Time</th>
+        {% if session['username'] %}
+        <th>Edit</th>
+        {% endif %}
+    </tr>
     </thead>
     <tbody>
+      {% for student_id, student_info in data.items() %}
       <tr>
-        <td>Tiger Nixon</td>
-        <td>System Architect</td>
-        <td>Edinburgh</td>
-        <td>61</td>
-        <td>2011-04-25</td>
-        <td>$320,800</td>
+          <td>{{ student_id }}</td>
+          <td>{{ student_info.name }}</td>
+          <td>{{ student_info.major }}</td>
+          <td>{{ student_info.starting_year }}</td>
+          <td>{{ student_info.total_attendance }}</td>
+          <td>{{ student_info.year }}</td>
+          <td>{{ student_info.last_attendance_time }}</td>
+          {% if session['username'] %}
+          <td>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editModal{{ student_id }}">
+              Edit
+          </button>
+          </td>
+          {% endif %}
       </tr>
-      <tr>
-        <td>Garrett Winters</td>
-        <td>Accountant</td>
-        <td>Tokyo</td>
-        <td>63</td>
-        <td>2011-07-25</td>
-        <td>$170,750</td>
-      </tr>
-      <tr>
-        <td>Ashton Cox</td>
-        <td>Junior Technical Author</td>
-        <td>San Francisco</td>
-        <td>66</td>
-        <td>2009-01-12</td>
-        <td>$86,000</td>
-      </tr>
+      {% endfor %}
     </tbody>
     <tfoot>
       <tr>
+        <th>ID</th>
         <th>Name</th>
-        <th>Position</th>
-        <th>Office</th>
-        <th>Age</th>
-        <th>Start date</th>
-        <th>Salary</th>
-      </tr>
+        <th>Major</th>
+        <th>Starting Year</th>
+        <th>Total Attendance</th>
+        <th>Year</th>
+        <th>Last Attendance Time</th>
+        {% if session['username'] %}
+        <th>Edit</th>
+        {% endif %}
+    </tr>
     </tfoot>
   </table>
 </div>
+
+{% for student_id, student_info in data.items() %}
+<div class="modal fade" id="editModal{{ student_id }}" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editModalLabel">Edit Attendance</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form method="POST" action="{{ url_for('update_data') }}">
+                    <input type="hidden" name="student_id" value="{{ student_id }}">
+                    <div class="form-group">
+                        <label>Total Attendance</label>
+                        <input type="number" class="form-control" name="total_attendance" value="{{ student_info.total_attendance }}">
+                    </div>
+
+                    
+                    <!-- Add other fields as necessary -->
+                    <button type="submit" class="btn btn-primary">Save changes</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %}

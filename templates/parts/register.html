@@ -1,0 +1,80 @@
+<!-- Modal -->
+<div class="modal fade" id="register_student" role="dialog" aria-labelledby="modalTitle">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <header class="modal-header">
+                <button type="button" class="close" id="registration_close_button" data-dismiss="modal"
+                    aria-label="Close">
+                    &times;
+                </button>
+                <h4 id="modalTitle" class="modal-title">Register</h4>
+            </header>
+            <div class="modal-body">
+                <form action="#" id="registrationForm">
+                    <div class="form-group">
+                        <label for="registration_student_id">Enter Your Student ID:</label>
+                        <input type="text" class="form-control" id="registration_student_id"
+                            aria-describedby="studentIDHelp" />
+                        <p id="registration_success_message" class="text-success"></p>
+                        <p id="registration_error" class="text-danger"></p>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="registration_otp">Enter OTP:</label>
+                        <input type="text" class="form-control" id="registration_otp" aria-describedby="otpHelp" />
+                        <p id="registration_otp_success_message" class="text-success"></p>
+                        <p id="registration_otp_error" class="text-danger"></p>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="webcam_video">User Image:</label>
+                        <video id="webcam_video" width="320" height="240" autoplay></video>
+                        <!-- <canvas id="canvas" width="320" height="240" class="d-none"></canvas> -->
+                    </div>
+
+                    <button type="submit" class="btn btn-default" id="registration_submitButton" disabled>
+                        Submit
+                    </button>
+
+                    <div class="form-group">
+                        <p id="registration_status_success_message" class="text-success"></p>
+                        <p id="registration_status_error_message" class="text-danger"></p>
+                    </div>
+                   
+                </form>
+            </div>
+            <footer class="modal-footer">
+                <button type="button" class="btn btn-default" id="registration_close_button" data-dismiss="modal">
+                    Close
+                </button>
+            </footer>
+        </div>
+    </div>
+</div>
+
+<style>
+    .video-capture-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .video-capture {
+        position: relative;
+        margin-bottom: 15px;
+    }
+
+    .video-stream,
+    .image-canvas {
+        max-width: 100%;
+        height: auto;
+        border: 2px solid #ddd;
+        border-radius: 5px;
+    }
+
+    /* Class to hide element */
+    .d-none {
+        display: none;
+    }
+</style>

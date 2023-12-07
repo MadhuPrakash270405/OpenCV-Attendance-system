@@ -3,3 +3,4 @@
 /env
 SecretKey.json
 test.py
+.env

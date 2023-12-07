@@ -24,7 +24,7 @@
     <script src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap4.min.js"></script>
     <style>
       body,
-      #myModal {
+      #loginModal,#registrationModal {
         font: 20px Montserrat, sans-serif;
         line-height: 1.5;
         color: #f5f6f7;
@@ -62,13 +62,13 @@
         padding-bottom: 70px;
       }
       .navbar {
-        padding-top: 15px;
-        padding-bottom: 15px;
+        padding-top: 14px;
+        padding-bottom: 14px;
         border: 0;
         border-radius: 0;
         margin-bottom: 0;
-        font-size: 12px;
-        letter-spacing: 5px;
+        font-size: 9px;
+        letter-spacing: 4px;
       }
       .navbar-nav li a:hover {
         color: #1abc9c !important;
@@ -81,6 +81,8 @@
 
     <!-- Login modal Container -->
     {% include 'parts/login.html' %}
+
+    {% include 'parts/register.html' %}
 
     <!-- First Container -->
     {% include 'parts/first_container.html' %}

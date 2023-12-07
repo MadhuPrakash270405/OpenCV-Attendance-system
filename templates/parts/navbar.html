@@ -17,11 +17,17 @@
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
+        <a href="#" data-toggle="modal" data-target="#register_student" id="register_student_button"
+        style="display: none;">
+      >
+        {% if not session['username'] %}
         <li>
-          <a href="#"
+          <a href="#" data-toggle="modal" data-target="#register_student" id="register_student_button"
             ><span class="glyphicon glyphicon-plus"></span>REGISTER A STUDENT</a
           >
         </li>
+        {% endif %}
+        
         <li id="start-webcam">
           <a href="#"
             ><span class="glyphicon glyphicon-time"></span>TAKE ATTENDANCE</a
@@ -33,11 +39,47 @@
             ATTENDANCE</a
           >
         </li>
+        {% if session['username'] %}
         <li>
-          <a href="#" data-toggle="modal" data-target="#myModal"
+          <a href="#view_attendance"
+            ><span class="glyphicon glyphicon-list-alt"></span>EDIT
+            ATTENDANCE</a
+          >
+        </li>
+        {% endif %}
+        {% if not session['username'] %}
+        <li>
+          <a href="#" data-toggle="modal" data-target="#loginModal"
             ><span class="glyphicon glyphicon-user"></span>Login</a
           >
         </li>
+        {% endif %}
+
+
+
+
+        {% if session['username'] %}
+        <li>
+          <a href="#" 
+            ><span class="glyphicon glyphicon-user"></span>Hello, {{ session['username'] }}!</a
+          >
+        </li>
+        {% else %}
+        <li>
+          <a href="#" 
+            ><span class="glyphicon glyphicon-user"></span>Hello, Guest!</a
+          >
+        </li>
+        {% endif %}
+
+        {% if session['username'] %}
+        <li>
+          <a href="/logout" id="logout"
+            ><span class="glyphicon glyphicon-log-out"></span>Logout</a
+          >
+        </li>
+        {% endif %}
+
       </ul>
     </div>
   </div>

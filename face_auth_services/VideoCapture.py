@@ -4,60 +4,30 @@ import numpy as np
 import cv2
 import face_recognition
 import cvzone
-import firebase_admin
-from firebase_admin import credentials
-from firebase_admin import db
-from firebase_admin import storage
+import logging
 import numpy as np
 from datetime import datetime
-import logging
-
-from email_notification import send_email
-
+from face_auth_services.EncodeGenerator import encode_pickle_file
+from utils.email_notification import send_attendance_email, send_email
+from logs.logger import setup_logging
+from database.database import initialize_firebase,get_student_image,get_student_info, update_student_info
 # Setup logging
-log_filename = "face_attendance.log"
-logging.basicConfig(
-    level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s"
-)
 
-# Create file handler which logs even debug messages
-file_handler = logging.FileHandler(log_filename, mode="a")
-file_handler.setLevel(logging.INFO)
-file_handler.setFormatter(
-    logging.Formatter("%(asctime)s - %(levelname)s - %(message)s")
-)
-
-
-# Add handlers to the root logger
-logging.getLogger("").addHandler(file_handler)
-
+setup_logging()
 
 # GLOBAL VARIABLES
 BUCKET = None
-imgModeList, studentImages, encodeListKnown, studentIds = {}, {}, [], []
+imgModeList, encodeListKnown = {}, []
 MODE_TYPE = "active"
 COUNTER = 0
 opened_windows = []
 
-
-# Initialize Firebase
-def initialize_firebase():
-    global BUCKET
-    try:
-        cred = credentials.Certificate("SecretKey.json")
-        firebase_admin.initialize_app(
-            cred,
-            {
-                "databaseURL": "https://faceattendance-fa7ef-default-rtdb.firebaseio.com/",
-                "storageBucket": "faceattendance-fa7ef.appspot.com",
-            },
-        )
-        BUCKET = storage.bucket()
-        logging.info("Firebase initialized successfully.")
-    except Exception as e:
-        logging.error(f"Error initializing Firebase: {e}")
-        raise e
-
+# dir_list = os.listdir('./face_auth_services')
+ 
+# print("Files and directories in '", './face_auth_services', "' :")
+ 
+# # prints all files
+# print(dir_list)
 
 initialize_firebase()
 
@@ -75,7 +45,7 @@ def load_resources():
             imgModeList[filename] = cv2.imread(os.path.join(folderModePath, path))
 
         logging.info("Loading Encode File...")
-        with open("EncodeFile.p", "rb") as file:
+        with open("./face_auth_services/EncodeFile.p", "rb") as file:
             encodeListKnownWithIds = pickle.load(file)
         encodeListKnown, studentIds = encodeListKnownWithIds
         logging.info("Encode File Loaded")
@@ -89,17 +59,7 @@ def mode_image(imgBackground, MODE_TYPE):
     imgBackground[44 : 44 + 633, 808 : 808 + 414] = imgModeList[MODE_TYPE]
 
 
-# Get Student Info from Firebase
-def get_student_info(student_id):
-    return db.reference(f"Students/{student_id}").get()
 
-
-def get_student_image(student_id):
-    if student_id not in studentImages:
-        blob = BUCKET.get_blob(f"resources/images/{student_id}.png")
-        array = np.frombuffer(blob.download_as_string(), np.uint8)
-        studentImages[student_id] = cv2.imdecode(array, cv2.COLOR_BGRA2BGR)
-    return studentImages[student_id]
 
 
 def attendence_info(imgBackground, student_id):
@@ -169,11 +129,7 @@ def attendence_info(imgBackground, student_id):
         (50, 50, 50),
         1,
     )
-    send_email(
-        student_name=student_info["name"],
-        student_id=student_id,
-        class_name="CIS 634-Software Engineering",
-    )
+
     imgBackground[175 : 175 + 216, 909 : 909 + 216] = get_student_image(student_id)
 
 
@@ -186,15 +142,19 @@ def update_attendance(imgBackground, student_id):
     datetimeObject = datetime.strptime(
         studentInfo["last_attendance_time"], "%Y-%m-%d %H:%M:%S"
     )
+    studentInfo["total_attendance"] += 1
+    update_student_info(student_id,studentInfo["total_attendance"])
     secondsElapsed = (datetime.now() - datetimeObject).total_seconds()
     print(secondsElapsed)
-    if secondsElapsed > 30:
-        ref = db.reference(f"Students/{student_id}")
-        studentInfo["total_attendance"] += 1
-        ref.child("total_attendance").set(studentInfo["total_attendance"])
-        ref.child("last_attendance_time").set(
-            datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    #Marking Attendance After 1 Minute
+    if secondsElapsed > 60:
+        send_attendance_email(
+        student_name=studentInfo["name"],
+        student_id=student_id,
+        class_name="CIS 634-Software Engineering",
         )
+        studentInfo["total_attendance"] += 1
+        update_student_info(student_id,studentInfo["total_attendance"])
     else:
         MODE_TYPE = "already_marked"
         COUNTER = 0
@@ -213,10 +173,11 @@ def open_window(name, image):
         opened_windows.append(name)
 
 
-def attendance_system(device_index, webcam_active):
+def attendance_system(webcam_active):
+    encode_pickle_file()
     global MODE_TYPE, COUNTER, imgModeList, studentImages, encodeListKnown, studentIds
     studentId = ""
-    cap = cv2.VideoCapture(device_index)
+    cap = cv2.VideoCapture(0)
     cap.set(cv2.CAP_PROP_FRAME_WIDTH, 1920)
     cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 1080)
     try:
@@ -280,6 +241,7 @@ def attendance_system(device_index, webcam_active):
             if cv2.waitKey(1) & 0xFF == ord("q"):
                 break
     except Exception as e:
+        print(e)
         logging.error(f"An unexpected error occurred: {e}")
     finally:
         cap.release()
