@@ -3,6 +3,7 @@ from pprint import pprint
 import threading
 from flask import Flask, jsonify, redirect, render_template, request, session, url_for
 from database.database import get_student_data, is_student_registered, register_user, save_image_to_firebase, update_student_info
+from face_auth_services.ImageFunctionalites import check_face_in_image
 from face_auth_services.VideoCapture import attendance_system
 from utils.email_notification import send_otp_via_email
 import numpy as np
@@ -89,6 +90,8 @@ def register_student():
         if is_student_registered(student_id):
             return jsonify({"message": "Student already registered"}), 200
         # Ensure directory exists
+        if check_face_in_image(image_data) is False:
+            return jsonify({"message": "No face detected"}), 200
         save_image_to_firebase(student_id, image_data)
         # Register the user in Firestore
         register_user(student_id, f'resources/images/{student_id}.png')

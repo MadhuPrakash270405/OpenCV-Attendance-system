@@ -3174,3 +3174,98 @@ ValueError: The default Firebase app already exists. This means you called initi
 2023-12-07 02:19:56,154 - INFO - 127.0.0.1 - - [07/Dec/2023 02:19:56] "GET /logout HTTP/1.1" 200 -
 2023-12-07 02:19:56,505 - INFO - 127.0.0.1 - - [07/Dec/2023 02:19:56] "GET /static/images/icon1.png HTTP/1.1" 200 -
 2023-12-07 02:19:56,508 - INFO - 127.0.0.1 - - [07/Dec/2023 02:19:56] "GET /static/scripts/script.js HTTP/1.1" 200 -
+2023-12-07 02:19:56,603 - INFO - 127.0.0.1 - - [07/Dec/2023 02:19:56] "GET /static/scripts/smooth_scrolling.js HTTP/1.1" 200 -
+2023-12-07 02:21:11,124 - INFO - 127.0.0.1 - - [07/Dec/2023 02:21:11] "GET /logout HTTP/1.1" 200 -
+2023-12-07 02:21:11,312 - INFO - 127.0.0.1 - - [07/Dec/2023 02:21:11] "GET /static/images/icon1.png HTTP/1.1" 200 -
+2023-12-07 02:21:11,472 - INFO - 127.0.0.1 - - [07/Dec/2023 02:21:11] "GET /static/scripts/script.js HTTP/1.1" 200 -
+2023-12-07 02:21:11,472 - INFO - 127.0.0.1 - - [07/Dec/2023 02:21:11] "GET /static/scripts/smooth_scrolling.js HTTP/1.1" 200 -
+2023-12-07 02:35:10,869 - INFO - 127.0.0.1 - - [07/Dec/2023 02:35:10] "GET /logout HTTP/1.1" 200 -
+2023-12-07 02:35:10,902 - INFO - 127.0.0.1 - - [07/Dec/2023 02:35:10] "GET /static/images/icon1.png HTTP/1.1" 200 -
+2023-12-07 02:35:11,202 - INFO - 127.0.0.1 - - [07/Dec/2023 02:35:11] "GET /static/scripts/script.js HTTP/1.1" 200 -
+2023-12-07 02:35:11,211 - INFO - 127.0.0.1 - - [07/Dec/2023 02:35:11] "GET /static/scripts/smooth_scrolling.js HTTP/1.1" 200 -
+2023-12-07 04:22:35,307 - INFO - Firebase initialized successfully.
+2023-12-07 04:22:35,346 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2023-12-07 04:22:35,347 - INFO - [33mPress CTRL+C to quit[0m
+2023-12-07 04:22:35,351 - INFO -  * Restarting with stat
+2023-12-07 04:22:39,826 - INFO - Firebase initialized successfully.
+2023-12-07 04:22:39,844 - WARNING -  * Debugger is active!
+2023-12-07 04:22:39,844 - INFO -  * Debugger PIN: 114-961-651
+2023-12-07 04:23:26,397 - INFO -  * Detected change in 'C:\\Users\\behar\\OneDrive\\Desktop\\FALL 2023\\OpenCV-Attendance-system\\face_auth_services\\ImageFunctionalites.py', reloading
+2023-12-07 04:23:40,054 - INFO - Firebase initialized successfully.
+2023-12-07 04:23:40,079 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2023-12-07 04:23:40,079 - INFO - [33mPress CTRL+C to quit[0m
+2023-12-07 04:23:40,086 - INFO -  * Restarting with stat
+2023-12-07 04:23:44,490 - INFO - Firebase initialized successfully.
+2023-12-07 04:23:44,506 - WARNING -  * Debugger is active!
+2023-12-07 04:23:44,506 - INFO -  * Debugger PIN: 114-961-651
+2023-12-07 04:23:46,955 - INFO -  * Detected change in 'C:\\Users\\behar\\OneDrive\\Desktop\\FALL 2023\\OpenCV-Attendance-system\\face_auth_services\\ImageFunctionalites.py', reloading
+2023-12-07 04:25:35,740 - INFO - Firebase initialized successfully.
+2023-12-07 04:25:35,775 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2023-12-07 04:25:35,776 - INFO - [33mPress CTRL+C to quit[0m
+2023-12-07 04:25:35,779 - INFO -  * Restarting with stat
+2023-12-07 04:25:39,307 - INFO - Firebase initialized successfully.
+2023-12-07 04:25:39,350 - WARNING -  * Debugger is active!
+2023-12-07 04:25:39,361 - INFO -  * Debugger PIN: 114-961-651
+2023-12-07 04:25:54,874 - INFO - 127.0.0.1 - - [07/Dec/2023 04:25:54] "GET /stop-webcam HTTP/1.1" 200 -
+2023-12-07 04:25:55,373 - INFO - 127.0.0.1 - - [07/Dec/2023 04:25:55] "GET /stop-webcam HTTP/1.1" 200 -
+2023-12-07 04:25:55,878 - INFO - 127.0.0.1 - - [07/Dec/2023 04:25:55] "GET /stop-webcam HTTP/1.1" 200 -
+2023-12-07 04:27:24,644 - INFO - 127.0.0.1 - - [07/Dec/2023 04:27:24] "GET /logout HTTP/1.1" 200 -
+2023-12-07 04:27:24,976 - INFO - 127.0.0.1 - - [07/Dec/2023 04:27:24] "GET /static/images/icon1.png HTTP/1.1" 200 -
+2023-12-07 04:27:25,013 - INFO - 127.0.0.1 - - [07/Dec/2023 04:27:25] "GET /static/scripts/script.js HTTP/1.1" 200 -
+2023-12-07 04:27:25,196 - INFO - 127.0.0.1 - - [07/Dec/2023 04:27:25] "GET /static/scripts/smooth_scrolling.js HTTP/1.1" 200 -
+2023-12-07 04:27:36,426 - INFO - 127.0.0.1 - - [07/Dec/2023 04:27:36] "GET / HTTP/1.1" 200 -
+2023-12-07 04:27:36,619 - INFO - 127.0.0.1 - - [07/Dec/2023 04:27:36] "[36mGET /static/images/icon1.png HTTP/1.1[0m" 304 -
+2023-12-07 04:27:36,770 - INFO - 127.0.0.1 - - [07/Dec/2023 04:27:36] "[36mGET /static/scripts/script.js HTTP/1.1[0m" 304 -
+2023-12-07 04:27:36,788 - INFO - 127.0.0.1 - - [07/Dec/2023 04:27:36] "[36mGET /static/scripts/smooth_scrolling.js HTTP/1.1[0m" 304 -
+2023-12-07 04:29:15,489 - INFO - 127.0.0.1 - - [07/Dec/2023 04:29:15] "GET / HTTP/1.1" 200 -
+2023-12-07 04:29:15,656 - INFO - 127.0.0.1 - - [07/Dec/2023 04:29:15] "GET / HTTP/1.1" 200 -
+2023-12-07 04:29:15,815 - INFO - 127.0.0.1 - - [07/Dec/2023 04:29:15] "GET /static/images/icon1.png HTTP/1.1" 200 -
+2023-12-07 04:29:15,815 - INFO - 127.0.0.1 - - [07/Dec/2023 04:29:15] "GET /static/scripts/script.js HTTP/1.1" 200 -
+2023-12-07 04:29:15,843 - INFO - 127.0.0.1 - - [07/Dec/2023 04:29:15] "GET /static/scripts/smooth_scrolling.js HTTP/1.1" 200 -
+2023-12-07 04:29:16,464 - INFO - 127.0.0.1 - - [07/Dec/2023 04:29:16] "GET / HTTP/1.1" 200 -
+2023-12-07 04:29:16,498 - INFO - 127.0.0.1 - - [07/Dec/2023 04:29:16] "GET /static/images/icon1.png HTTP/1.1" 200 -
+2023-12-07 04:29:16,500 - INFO - 127.0.0.1 - - [07/Dec/2023 04:29:16] "GET /static/scripts/script.js HTTP/1.1" 200 -
+2023-12-07 04:29:16,823 - INFO - 127.0.0.1 - - [07/Dec/2023 04:29:16] "GET /static/scripts/smooth_scrolling.js HTTP/1.1" 200 -
+2023-12-07 04:29:18,076 - INFO - 127.0.0.1 - - [07/Dec/2023 04:29:18] "GET /start-webcam HTTP/1.1" 200 -
+2023-12-07 04:29:20,652 - INFO - Loading Encode File...
+2023-12-07 04:29:20,652 - INFO - Encode File Loaded
+2023-12-07 04:29:31,916 - INFO - Face attendance system shut down.
+2023-12-07 04:29:37,856 - INFO - 127.0.0.1 - - [07/Dec/2023 04:29:37] "GET /stop-webcam HTTP/1.1" 200 -
+2023-12-07 04:31:12,251 - INFO - 127.0.0.1 - - [07/Dec/2023 04:31:12] "GET / HTTP/1.1" 200 -
+2023-12-07 04:31:12,377 - INFO - 127.0.0.1 - - [07/Dec/2023 04:31:12] "GET /static/images/icon1.png HTTP/1.1" 200 -
+2023-12-07 04:31:12,613 - INFO - 127.0.0.1 - - [07/Dec/2023 04:31:12] "GET /static/scripts/smooth_scrolling.js HTTP/1.1" 200 -
+2023-12-07 04:31:12,613 - INFO - 127.0.0.1 - - [07/Dec/2023 04:31:12] "GET /static/scripts/script.js HTTP/1.1" 200 -
+2023-12-07 04:31:28,273 - INFO - 127.0.0.1 - - [07/Dec/2023 04:31:28] "POST /send-otp HTTP/1.1" 200 -
+2023-12-07 04:31:35,596 - INFO - 127.0.0.1 - - [07/Dec/2023 04:31:35] "POST /verify-otp HTTP/1.1" 200 -
+2023-12-07 04:31:40,155 - INFO - 127.0.0.1 - - [07/Dec/2023 04:31:40] "POST /register-student HTTP/1.1" 200 -
+2023-12-07 04:31:43,275 - INFO - 127.0.0.1 - - [07/Dec/2023 04:31:43] "GET / HTTP/1.1" 200 -
+2023-12-07 04:31:43,614 - INFO - 127.0.0.1 - - [07/Dec/2023 04:31:43] "[36mGET /static/images/icon1.png HTTP/1.1[0m" 304 -
+2023-12-07 04:31:43,617 - INFO - 127.0.0.1 - - [07/Dec/2023 04:31:43] "[36mGET /static/scripts/script.js HTTP/1.1[0m" 304 -
+2023-12-07 04:31:43,701 - INFO - 127.0.0.1 - - [07/Dec/2023 04:31:43] "[36mGET /static/scripts/smooth_scrolling.js HTTP/1.1[0m" 304 -
+2023-12-07 04:31:51,123 - INFO - 127.0.0.1 - - [07/Dec/2023 04:31:51] "POST /send-otp HTTP/1.1" 200 -
+2023-12-07 04:32:07,531 - INFO - 127.0.0.1 - - [07/Dec/2023 04:32:07] "POST /verify-otp HTTP/1.1" 200 -
+2023-12-07 04:32:13,939 - INFO - 127.0.0.1 - - [07/Dec/2023 04:32:13] "POST /register-student HTTP/1.1" 200 -
+2023-12-07 04:32:17,357 - INFO - 127.0.0.1 - - [07/Dec/2023 04:32:17] "GET / HTTP/1.1" 200 -
+2023-12-07 04:32:17,544 - INFO - 127.0.0.1 - - [07/Dec/2023 04:32:17] "[36mGET /static/images/icon1.png HTTP/1.1[0m" 304 -
+2023-12-07 04:32:17,719 - INFO - 127.0.0.1 - - [07/Dec/2023 04:32:17] "[36mGET /static/scripts/script.js HTTP/1.1[0m" 304 -
+2023-12-07 04:32:17,719 - INFO - 127.0.0.1 - - [07/Dec/2023 04:32:17] "[36mGET /static/scripts/smooth_scrolling.js HTTP/1.1[0m" 304 -
+2023-12-07 04:32:20,759 - INFO - 127.0.0.1 - - [07/Dec/2023 04:32:20] "GET /start-webcam HTTP/1.1" 200 -
+2023-12-07 04:32:23,648 - INFO - Loading Encode File...
+2023-12-07 04:32:23,648 - INFO - Encode File Loaded
+2023-12-07 04:33:52,393 - INFO - Face attendance system shut down.
+2023-12-07 04:33:58,082 - INFO - 127.0.0.1 - - [07/Dec/2023 04:33:58] "GET / HTTP/1.1" 200 -
+2023-12-07 04:33:58,280 - INFO - 127.0.0.1 - - [07/Dec/2023 04:33:58] "[36mGET /static/images/icon1.png HTTP/1.1[0m" 304 -
+2023-12-07 04:33:58,432 - INFO - 127.0.0.1 - - [07/Dec/2023 04:33:58] "[36mGET /static/scripts/script.js HTTP/1.1[0m" 304 -
+2023-12-07 04:33:58,433 - INFO - 127.0.0.1 - - [07/Dec/2023 04:33:58] "[36mGET /static/scripts/smooth_scrolling.js HTTP/1.1[0m" 304 -
+2023-12-07 04:35:52,493 - INFO -  * Detected change in 'C:\\Users\\behar\\OneDrive\\Desktop\\FALL 2023\\OpenCV-Attendance-system\\face_auth_services\\VideoCapture.py', reloading
+2023-12-07 04:35:52,750 - INFO -  * Restarting with stat
+2023-12-07 04:35:56,200 - INFO - Firebase initialized successfully.
+2023-12-07 04:35:56,234 - WARNING -  * Debugger is active!
+2023-12-07 04:35:56,264 - INFO -  * Debugger PIN: 114-961-651
+2023-12-07 05:11:23,685 - INFO - 127.0.0.1 - - [07/Dec/2023 05:11:23] "GET / HTTP/1.1" 200 -
+2023-12-07 05:11:24,805 - INFO - 127.0.0.1 - - [07/Dec/2023 05:11:24] "GET /static/images/icon1.png HTTP/1.1" 200 -
+2023-12-07 05:11:24,965 - INFO - 127.0.0.1 - - [07/Dec/2023 05:11:24] "GET /static/scripts/script.js HTTP/1.1" 200 -
+2023-12-07 05:11:24,991 - INFO - 127.0.0.1 - - [07/Dec/2023 05:11:24] "GET /static/scripts/smooth_scrolling.js HTTP/1.1" 200 -

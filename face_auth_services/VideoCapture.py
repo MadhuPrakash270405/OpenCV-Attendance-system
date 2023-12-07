@@ -142,7 +142,7 @@ def update_attendance(imgBackground, student_id):
     datetimeObject = datetime.strptime(
         studentInfo["last_attendance_time"], "%Y-%m-%d %H:%M:%S"
     )
-    studentInfo["total_attendance"] += 1
+    # studentInfo["total_attendance"] += 1
     update_student_info(student_id,studentInfo["total_attendance"])
     secondsElapsed = (datetime.now() - datetimeObject).total_seconds()
     print(secondsElapsed)

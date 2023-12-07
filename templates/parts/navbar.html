@@ -17,16 +17,12 @@
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
-        <a href="#" data-toggle="modal" data-target="#register_student" id="register_student_button"
-        style="display: none;">
-      >
-        {% if not session['username'] %}
+
         <li>
           <a href="#" data-toggle="modal" data-target="#register_student" id="register_student_button"
             ><span class="glyphicon glyphicon-plus"></span>REGISTER A STUDENT</a
           >
         </li>
-        {% endif %}
         
         <li id="start-webcam">
           <a href="#"
