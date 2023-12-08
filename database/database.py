@@ -104,7 +104,7 @@ def update_student_info(student_id, student_attendance):
     try:
         ref = db.reference(f"Students/{student_id}")
         ref.update({
-            "total_attendance": student_attendance,
+            "total_attendance": int(student_attendance),
             "last_attendance_time": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         })
     except Exception as e:

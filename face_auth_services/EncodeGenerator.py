@@ -13,10 +13,7 @@ imgList = []
 
 
 
-    # print(path)
-
-
-
+    # print(path
 def findEncodings(imagesList):
     encodeList = []
     for img in imagesList:

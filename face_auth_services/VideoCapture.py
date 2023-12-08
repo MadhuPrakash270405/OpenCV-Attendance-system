@@ -153,7 +153,7 @@ def update_attendance(imgBackground, student_id):
         student_id=student_id,
         class_name="CIS 634-Software Engineering",
         )
-        studentInfo["total_attendance"] += 1
+        studentInfo["total_attendance"]=int(studentInfo["total_attendance"])+ 1
         update_student_info(student_id,studentInfo["total_attendance"])
     else:
         MODE_TYPE = "already_marked"
@@ -173,11 +173,11 @@ def open_window(name, image):
         opened_windows.append(name)
 
 
-def attendance_system(webcam_active):
+def attendance_system(webcam_active,device_index=0):
     encode_pickle_file()
     global MODE_TYPE, COUNTER, imgModeList, studentImages, encodeListKnown, studentIds
     studentId = ""
-    cap = cv2.VideoCapture(0)
+    cap = cv2.VideoCapture(device_index)
     cap.set(cv2.CAP_PROP_FRAME_WIDTH, 1920)
     cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 1080)
     try:

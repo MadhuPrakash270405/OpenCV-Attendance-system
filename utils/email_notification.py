@@ -194,9 +194,3 @@ def send_attendance_email(
    
 
 
-if __name__ == "__main__":
-    send_email(
-        student_name="Madhu Prakash Behara",
-        student_id="2845381",
-        class_name="CIS 634-Software Engineering",
-    )
